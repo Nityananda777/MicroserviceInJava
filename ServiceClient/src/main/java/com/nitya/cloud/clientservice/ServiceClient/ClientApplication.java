@@ -30,6 +30,7 @@ public class ClientApplication {
 	
 	@RequestMapping("/")
 	public String callService() {
+		System.out.println();
 		RestTemplate restTemplate = restTemplateBuilder.build();
 		InstanceInfo instanceInfo = client.getNextServerFromEureka("AccountService", false);
 		String baseUrl = instanceInfo.getHomePageUrl();
