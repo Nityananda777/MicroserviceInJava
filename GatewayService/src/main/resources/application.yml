@@ -1,0 +1,26 @@
+server:
+  port: 8086
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+zuul:
+  prefix: /api
+  routes:
+    test:
+      path: /redirect/**
+      url: http://google.com
+    AccountService:
+      path: /server1/**
+      serviceId: ACCOUNTSERVICE
+    HelloService:
+      path: /server2/**
+      serviceId: HELLOSERVICE
+    ServiceClient:
+      path: /client/**
+      serviceId: ServiceClient
+      
+spring:
+  application:
+    name: zuul-service
