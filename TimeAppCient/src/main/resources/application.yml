@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: TimeAppClient
+ 
+server:
+  port: 8888
+ 
+TimeService:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: http://localhost:8056/,http://localhost:8055
+    ServerListRefreshInterval: 15000
